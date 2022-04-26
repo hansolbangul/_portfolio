@@ -35,6 +35,7 @@ const NavMenu = styled.div`
     color: ${(props) => props.theme.accentColor};
   }
 `;
+
 function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
   const stackRef = useRef<HTMLDivElement>(null);

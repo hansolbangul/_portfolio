@@ -1,6 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Router from './Router';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { darkTheme, lightTheme } from './theme';
 import { isDarkAtom } from './atoms';
 import { useRecoilValue } from 'recoil';
@@ -26,7 +25,7 @@ time, mark, audio, video, button {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: 'SuncheonB' !important;
+  font-family: 'GangwonEduPowerExtraBoldA' !important;
   font: inherit;
   vertical-align: baseline;
 }
