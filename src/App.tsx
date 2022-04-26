@@ -98,7 +98,7 @@ function App() {
         <GlobalStyle />
         <Router />
         <Footer />
-        <FootToggle />
+        {/* <FootToggle /> */}
       </ThemeProvider>
     </>
   );

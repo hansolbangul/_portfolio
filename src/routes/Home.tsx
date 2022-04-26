@@ -7,17 +7,17 @@ import Sns from '../component/Sns';
 import Project from '../component/Project';
 import Experience from '../component/Experience';
 
-const Nav = styled.div`
+import MenuIcon from '../image/Menu.png';
+
+const Icon = styled.div`
   position: fixed;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: ${(props) => props.theme.textColor};
-  background-color: ${(props) => props.theme.bgColor};
-  /* background-color: black; */
-  border-bottom: 1px solid gray;
+  left: 20px;
+  top: 20px;
+`;
+
+const Nav = styled.div`
+  position: absolute;
+  cursor: pointer;
 `;
 
 const NavMenu = styled.div`
@@ -25,18 +25,21 @@ const NavMenu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  button {
+  div {
     color: ${(props) => props.theme.textColor};
     padding: 0px 20px;
     border: none;
-    background-color: ${(props) => props.theme.cardBgColor};
+    /* background-color: transparent !important; */
+    /* background-color: ${(props) => props.theme.cardBgColor}; */
   }
-  button:hover {
+  div:hover {
     color: ${(props) => props.theme.accentColor};
+    cursor: pointer;
   }
 `;
 
 function Home() {
+  const headerRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const stackRef = useRef<HTMLDivElement>(null);
   const snsRef = useRef<HTMLDivElement>(null);
@@ -46,31 +49,53 @@ function Home() {
   const Routers = () => {
     return (
       <>
-        <button onClick={() => aboutRef.current?.scrollIntoView({ behavior: 'smooth' })}>
+        <Nav
+          style={{ top: '15px', left: '70px' }}
+          onClick={() => aboutRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        >
           about
-        </button>
-        <button onClick={() => stackRef.current?.scrollIntoView({ behavior: 'smooth' })}>
+        </Nav>
+        <Nav
+          style={{ top: '40px', left: '30px' }}
+          onClick={() => stackRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        >
           stack
-        </button>
-        <button onClick={() => snsRef.current?.scrollIntoView({ behavior: 'smooth' })}>sns</button>
-        <button onClick={() => projectRef.current?.scrollIntoView({ behavior: 'smooth' })}>
-          project
-        </button>
-        <button onClick={() => experienceRef.current?.scrollIntoView({ behavior: 'smooth' })}>
+        </Nav>
+        <Nav
+          style={{ top: '65px', left: '100px' }}
+          onClick={() => snsRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        >
           Experience
-        </button>
+        </Nav>
+        <Nav
+          style={{ top: '90px', left: '40px' }}
+          onClick={() => projectRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          project
+        </Nav>
+        <Nav
+          style={{ top: '115px', left: '80px' }}
+          onClick={() => experienceRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          sns
+        </Nav>
       </>
     );
   };
 
   return (
     <>
-      <Nav>
-        <NavMenu>
-          <Routers />
-        </NavMenu>
-      </Nav>
-      <Header></Header>
+      <Icon>
+        <img
+          onClick={() => headerRef.current?.scrollIntoView({ behavior: 'smooth' })}
+          style={{ position: 'relative', cursor: 'pointer' }}
+          width="200px"
+          src={MenuIcon}
+          alt="MenuIcon"
+        />
+        <Routers />
+      </Icon>
+      <Header ref={headerRef}></Header>
       <About ref={aboutRef}></About>
       <Stack ref={stackRef}></Stack>
       <Sns ref={snsRef}></Sns>
