@@ -17,4 +17,10 @@ export const isDarkAtom = atom({
   // effects_UNSTABLE: [persistAtom], // 새로고침 해도 안사라짐
 });
 
+export const isMoveAtom = atom({
+  key: 'isMove',
+  default: false,
+  // effects_UNSTABLE: [persistAtom], // 새로고침 해도 안사라짐
+});
+
 // default 값을 obejct로도 설정 가능 default: { access: false, user: "", id: 0 },
