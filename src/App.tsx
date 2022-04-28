@@ -1,10 +1,10 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import Router from './Router';
-import { darkTheme, lightTheme } from './theme';
-import { isDarkAtom } from './atoms';
-import { useRecoilValue } from 'recoil';
-import FootToggle from './nav/FootToggle';
-import Footer from './nav/Footer';
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import Router from "./Router";
+import { darkTheme, lightTheme } from "./theme";
+import { isDarkAtom } from "./atoms";
+import { useRecoilValue } from "recoil";
+import FootToggle from "./nav/FootToggle";
+import Footer from "./nav/Footer";
 
 // react 쓸데없는 padding이랑 margin 제거
 const GlobalStyle = createGlobalStyle`
@@ -61,8 +61,8 @@ table {
 }
 body {
   /* font-family: 'Source Sans Pro', sans-serif; */
-  background-color:${(props) => props.theme.bgColor};
-  color:${(props) => props.theme.textColor}
+  background-color:${props => props.theme.bgColor};
+  color:${props => props.theme.textColor}
 }
 a {
   text-decoration:none;
@@ -75,6 +75,10 @@ a {
   display: none;
 }
 
+.padding {
+  padding: 20px 15%;
+}
+
 @media screen and (max-width: 900px) {
   .pc {
     display: none;
@@ -84,6 +88,29 @@ a {
   }
   .m_w100 {
     width: 100%;
+  }
+  .padding {
+    padding: 20px 30px;
+  }
+  h1{
+    font-size: 1.8rem !important;
+  }
+  .sectionDiv{
+    div{
+      font-size: 2rem !important;
+    }
+    span{
+      font-size: 1rem !important;
+    }
+  }
+  .templeDiv{
+    padding: 10px 10px !important;
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 900px) {
+  .padding {
+    padding: 20px 10%;
   }
 }
 `;
