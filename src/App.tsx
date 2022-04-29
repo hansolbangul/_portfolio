@@ -113,18 +113,6 @@ a {
     padding: 20px 10%;
   }
 }
-
-@keyframes backgroundChage {
-  0%{
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100%{
-    background-position: 0 50%;
-  }
-}
 `;
 
 // useRecoilValue를 사용해서 recoil의 값 (state) 불러오기
